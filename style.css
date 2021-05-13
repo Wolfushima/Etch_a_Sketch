@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+    font-size: 60%;
+    font-family: monospace;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.grid-content {
+    display: inline-grid;
+    margin: auto;  
+    grid-template-columns: repeat(16, auto);
+    border: solid green;
+}
+
+.div-element {
+    border: 1px solid rgb(66, 66, 119);
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
