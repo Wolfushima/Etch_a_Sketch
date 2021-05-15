@@ -1,6 +1,5 @@
 const gridContent = document.querySelector(".grid-content");
-const clearButton = document.querySelector(".clear-button");
-clearButton.addEventListener("click", () => {
+const clearButton = document.querySelector(".clear-button").addEventListener("click", () => {
     const arrayGridContent = Array.from(gridContent.childNodes);
     arrayGridContent.forEach(element => {
         element.style.backgroundColor = "white";

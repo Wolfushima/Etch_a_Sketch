@@ -10,10 +10,21 @@ html {
     height: 100%;
     font-size: 60%;
     font-family: monospace;
+    text-align: center;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+}
+
+
+.container {
+    flex: 1;
+    padding-bottom: 30px;
+    width: auto;
+    margin: auto;
 }
 
 .grid-content {
@@ -23,11 +34,23 @@ body {
     border: solid green;
 }
 
+button {
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: auto;
+}
+
 .div-element {
     border: 1px solid rgb(66, 66, 119);
     background-color: rgb(240, 240, 240);
-    margin: 0;
-    padding: 0;
-    height: 30px;
-    width: 30px;
+    height: 5vh;
+    width: 5vh;
+}
+
+@media screen and (max-width: 450px) {
+    .div-element {
+        height: 5vw;
+        width: 5vw;
+    }
 }
