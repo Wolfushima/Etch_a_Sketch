@@ -8,7 +8,11 @@ for (let i = 0; i < 36 * 36; i++) {
     divElement.addEventListener("mousedown", colorDivElement);
     divElement.addEventListener("mouseover", colorDivElement);   
 }
-
+///         ---grid-size---         ///
+function test (e) {
+    console.log(e.target.value)
+}
+addGlobalEventListener("input", ".grid-slider", test);
 
 ///         ---functions---          ///
 function colorDivElement(e) {
@@ -29,17 +33,25 @@ function colorPicked() {
     switch (selectedColorEffect) {
         case "black": return "#000000";
             break;
-        case "rainbow": return rainbowColor();
+        case "rainbow": return rainbowColorEffect();
+            break;
+        case "darkRainbow": return darkRainbowColorEffect();
             break;
     }
 }
 
-function rainbowColor() {
+function rainbowColorEffect() {
     const randomRed = Math.floor(Math.random() * 256);
     const randomGreen = Math.floor(Math.random() * 256);
     const randomBlue = Math.floor(Math.random() * 256);
-    let rainbowColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-    return rainbowColor;
+    let rainbowColorEffect = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+    return rainbowColorEffect;
+}
+
+function darkRainbowColorEffect() {
+    const randomRed = randomGreen = randomBlue = Math.floor(Math.random() * 200);
+    let darkRainbowColorEffect = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+    return darkRainbowColorEffect;
 }
 
 function clearGrid() {
@@ -56,8 +68,8 @@ function addGlobalEventListener(type, selector, callback) {
 }
 
 addGlobalEventListener("click", ".clear-button", clearGrid);
-
+addGlobalEventListener("click", ".blackColor-button", () => { selectedColorEffect = "black"; })
 addGlobalEventListener("click", ".rainbow-button", () => { selectedColorEffect = "rainbow"; });
-addGlobalEventListener("click", ".darker-button", () => { selectedColorEffect = "black" })
+addGlobalEventListener("click", ".darkRainbow-button", () => { selectedColorEffect = "darkRainbow"; })
 
 

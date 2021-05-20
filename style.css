@@ -45,13 +45,13 @@ button {
 
 .div-element {
     border: 1px solid rgb(66, 66, 119);
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(241, 241, 241);
     user-drag: none; 
-user-select: none;
--moz-user-select: none;
--webkit-user-drag: none;
--webkit-user-select: none;
--ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .neon-effect {
