@@ -1,18 +1,25 @@
 let selectedColorEffect = "black";
 const gridContent = document.querySelector(".grid-content");
 
-for (let i = 0; i < 36 * 36; i++) {
-    const divElement = document.createElement("div");
-    divElement.classList.add("div-element");
-    gridContent.appendChild(divElement);
-    divElement.addEventListener("mousedown", colorDivElement);
-    divElement.addEventListener("mouseover", colorDivElement);   
+createGrid(50);
+
+///         ---grid functions---         ///
+function createGrid(size) {
+    for (let i = 0; i < size * size; i++) {
+        const divElement = document.createElement("div");
+        divElement.classList.add("div-element");
+        gridContent.appendChild(divElement);
+        divElement.addEventListener("mousedown", colorDivElement);
+        divElement.addEventListener("mouseover", colorDivElement);   
+    }
+    gridContent.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 }
-///         ---grid-size---         ///
-function test (e) {
-    console.log(e.target.value)
+
+function gridSizeValue (e) {
+    gridContent.replaceChildren();
+    size = e.target.value;
+    createGrid(size);
 }
-addGlobalEventListener("input", ".grid-slider", test);
 
 ///         ---functions---          ///
 function colorDivElement(e) {
@@ -71,5 +78,7 @@ addGlobalEventListener("click", ".clear-button", clearGrid);
 addGlobalEventListener("click", ".blackColor-button", () => { selectedColorEffect = "black"; })
 addGlobalEventListener("click", ".rainbow-button", () => { selectedColorEffect = "rainbow"; });
 addGlobalEventListener("click", ".darkRainbow-button", () => { selectedColorEffect = "darkRainbow"; })
+
+addGlobalEventListener("input", ".grid-slider", gridSizeValue);
 
 

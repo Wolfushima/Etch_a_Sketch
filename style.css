@@ -28,11 +28,12 @@ body {
 
 .grid-content {
     display: grid;
+    justify-content: center;
     margin: auto;
     height: 80vh;
     width: 80vh;
-    grid-template-columns: repeat(36, 1fr);
-    border: solid green;
+    min-width: 100%;
+    max-width: 100%;
 }
 
 button {
@@ -44,7 +45,7 @@ button {
 }
 
 .div-element {
-    border: 1px solid rgb(66, 66, 119);
+    border: .1px solid rgb(66, 66, 119);
     background-color: rgb(241, 241, 241);
     user-drag: none; 
     user-select: none;
