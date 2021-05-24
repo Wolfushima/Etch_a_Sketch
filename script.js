@@ -16,6 +16,8 @@ function createGrid(size) {
 }
 
 function gridSizeValue (e) {
+    const sliderTextValue = document.querySelector(".slider-text-value")
+    sliderTextValue.textContent = e.target.value;
     gridContent.replaceChildren();
     size = e.target.value;
     createGrid(size);
