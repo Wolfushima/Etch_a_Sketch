@@ -1,7 +1,7 @@
 let selectedColorEffect = "black";
 const gridContent = document.querySelector(".grid-content");
 
-createGrid(50);
+createGrid(32);
 
 ///         ---grid functions---         ///
 function createGrid(size) {
