@@ -82,5 +82,10 @@ addGlobalEventListener("click", ".rainbow-button", () => { selectedColorEffect =
 addGlobalEventListener("click", ".darkRainbow-button", () => { selectedColorEffect = "darkRainbow"; })
 
 addGlobalEventListener("input", ".grid-slider", gridSizeValue);
+addGlobalEventListener("change", ".magic-click", (e) => {
+    if(e.target.checked === true) {
+        console.log("this is true")
+    } else console.log("this is false");
+});
 
 
