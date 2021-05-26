@@ -1,5 +1,6 @@
 let selectedColorEffect = "black";
 let clickEffect = magicClick;
+let singleColor;
 const gridContent = document.querySelector(".grid-content");
 
 createGrid(32);
@@ -46,6 +47,8 @@ function colorPicked() {
             break;
         case "darkRainbow": return darkRainbowColorEffect();
             break;
+        case "singleColor": return singleColor;
+            break;
     }
 }
 
@@ -84,6 +87,10 @@ addGlobalEventListener("click", ".darkRainbow-button", () => { selectedColorEffe
 addGlobalEventListener("input", ".grid-slider", gridSizeValue);
 addGlobalEventListener("change", ".magic-click", (e) => { if(e.target.checked === true) { clickEffect = magicClick }
     else clickEffect = () => void(0);
-});
+})
+
+addGlobalEventListener("input", ".single-color", (e) => { singleColor = e.target.value;
+    selectedColorEffect = "singleColor";
+})
 
 
