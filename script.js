@@ -1,5 +1,5 @@
 let selectedColorEffect = "black";
-let clickEffect = neonEffect;
+let clickEffect = magicClick;
 const gridContent = document.querySelector(".grid-content");
 
 createGrid(32);
@@ -30,10 +30,10 @@ function colorDivElement(e) {
     clickEffect(e);
 }
 
-function neonEffect(e) {
-    e.target.classList.add("neon-effect");
+function magicClick(e) {
+    e.target.classList.add("magic-click");
     setTimeout(() => {
-        e.target.classList.remove("neon-effect");
+        e.target.classList.remove("magic-click");
     }, 100);
 }
 
@@ -82,7 +82,7 @@ addGlobalEventListener("click", ".rainbow-button", () => { selectedColorEffect =
 addGlobalEventListener("click", ".darkRainbow-button", () => { selectedColorEffect = "darkRainbow"; })
 
 addGlobalEventListener("input", ".grid-slider", gridSizeValue);
-addGlobalEventListener("change", ".magic-click", (e) => { if(e.target.checked === true) { clickEffect = neonEffect }
+addGlobalEventListener("change", ".magic-click", (e) => { if(e.target.checked === true) { clickEffect = magicClick }
     else clickEffect = () => void(0);
 });
 
