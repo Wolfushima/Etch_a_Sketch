@@ -52,7 +52,7 @@ button {
 
 .div-element {
     border: .1px solid rgb(66, 66, 119);
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(255, 255, 255);
     user-drag: none; 
     user-select: none;
     -moz-user-select: none;

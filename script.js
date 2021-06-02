@@ -12,7 +12,9 @@ function createGrid(size) {
         divElement.classList.add("div-element");
         gridContent.appendChild(divElement);
         divElement.addEventListener("mousedown", colorDivElement);
-        divElement.addEventListener("mouseover", colorDivElement);   
+        divElement.addEventListener("mouseover", colorDivElement);
+        addGlobalEventListener("click", ".randomizer", () => { 
+            divElement.style.backgroundColor = rainbowColorEffect();})
     }
     gridContent.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 }
