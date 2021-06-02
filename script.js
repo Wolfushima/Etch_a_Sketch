@@ -3,8 +3,6 @@ let clickEffect = magicClick;
 let singleColor;
 const gridContent = document.querySelector(".grid-content");
 
-createGrid(32);
-
 ///         ---grid functions---         ///
 function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
@@ -13,8 +11,6 @@ function createGrid(size) {
         gridContent.appendChild(divElement);
         divElement.addEventListener("mousedown", colorDivElement);
         divElement.addEventListener("mouseover", colorDivElement);
-        addGlobalEventListener("click", ".randomizer", () => { 
-            divElement.style.backgroundColor = rainbowColorEffect();})
     }
     gridContent.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 }
@@ -95,4 +91,12 @@ addGlobalEventListener("input", ".single-color", (e) => { singleColor = e.target
     selectedColorEffect = "singleColor";
 })
 
+addGlobalEventListener("click", ".randomizer", () => { 
+    const arrayGridContent = Array.from(gridContent.childNodes);
+    arrayGridContent.forEach(element => {
+        element.style.backgroundColor = rainbowColorEffect();
+    })
+})
+
+createGrid(32);
 
