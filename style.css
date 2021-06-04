@@ -1,10 +1,17 @@
+:root {
+    --black: #0B0C10;
+    --grey: #1F2833;
+    --light-grey: #C5C6C7;
+    --turquese: #66FCF1;
+    --dark-turquese: #45A29E;
+}
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 html {
@@ -18,6 +25,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(-45deg, hsl(133, 97%, 15%), hsl(219, 73%, 90%), #f5f5f5, #f2ffff);
+    background-size: 200% 200%;
+    font-size: 4em;
 }
 
 header {
@@ -37,9 +47,9 @@ header {
     display: grid;
     justify-content: center;
     margin: auto;
-    height: 80vh;
-    width: 80vh;
-    min-width: 100%;
+    padding: 1rem;
+    width: 60rem;
+    height: 60rem;
     max-width: 100%;
     user-drag: none; 
     user-select: none;
@@ -47,18 +57,17 @@ header {
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    box-shadow: 0 0 0rem .1rem #ffffff,
+                0 0 0rem 2rem #66CCFF;
 }
 
-button {
-    display: block;
-    text-align: center;
-    margin: auto;
-    width: auto;
-    cursor: pointer;
+.tools-container {
+    display: flex;
+    margin-top: 40px;
 }
 
 .div-element {
-    border: .1px solid rgb(66, 66, 119);
+    border: .1px solid rgba(199, 199, 199, 0.281);
     background-color: rgb(255, 255, 255);
     user-drag: none; 
     user-select: none;
@@ -67,6 +76,49 @@ button {
     -webkit-user-select: none;
     -ms-user-select: none;
     cursor: crosshair;
+}
+
+button, .color-pick, .single-color {
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: auto;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.slide-container {
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 4rem;
+}
+
+.grid-slider {
+    cursor: pointer;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: fit-content;
+    padding: .5rem;
+    background: var(--turquese); /* Grey background */
+    border-radius: 5rem;
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+.grid-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    border-radius: 50%;
+    border: 1px solid greenyellow;
+    background: green; /* Green background */
+    cursor: pointer; /* Cursor on hover */
 }
 
 .switch {
@@ -118,6 +170,29 @@ input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+footer {
+    border-top: yellow solid .1px;
+    height: 30px;
+    background-image: linear-gradient(rgb(32, 32, 32),rgb(15, 15, 48));
+    background-size: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    text-shadow: 1px 1px 1px #00c3ff9b;
+}
+
+footer div {
+    background-color: yellow;
+    padding: 0.1rem 0.6rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    align-self: baseline;
 }
 
 .magic-click {
