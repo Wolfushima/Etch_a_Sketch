@@ -1,6 +1,8 @@
 let selectedColorEffect = "black";
 let clickEffect = magicClick;
 let singleColor;
+let emptyColor;
+let copyColor;
 const gridContent = document.querySelector(".grid-content");
 
 ///         ---grid functions---         ///
@@ -47,6 +49,12 @@ function colorPicked() {
             break;
         case "singleColor": return singleColor;
             break;
+        case "eraser": return "#FFFFFF";
+            break;
+        case "emptyColor": return emptyColor;
+            break;
+        case "copyColor": return copyColor;
+            break;
     }
 }
 
@@ -87,7 +95,8 @@ addGlobalEventListener("change", ".magic-click", (e) => { if(e.target.checked ==
     else clickEffect = () => void(0);
 })
 
-addGlobalEventListener("input", ".single-color", (e) => { singleColor = e.target.value;
+addGlobalEventListener("input", ".single-color", (e) => {
+    singleColor = e.target.value;
     selectedColorEffect = "singleColor";
 })
 
@@ -96,6 +105,16 @@ addGlobalEventListener("click", ".randomizer", () => {
     arrayGridContent.forEach(element => {
         element.style.backgroundColor = rainbowColorEffect();
     })
+})
+
+addGlobalEventListener("click", ".eraser-button", () => { selectedColorEffect = "eraser"; })
+addGlobalEventListener("click", ".copy-color", (e) => {
+    selectedColorEffect = "emptyColor";
+    gridContent.addEventListener("click", (e) => {
+        copyColor = e.target.style.backgroundColor;
+        selectedColorEffect = "copyColor";
+        console.log(e.target.style.backgroundColor)
+    }, {once:true})
 })
 
 createGrid(32);
