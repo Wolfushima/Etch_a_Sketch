@@ -45,7 +45,7 @@ function colorPicked() {
             break;
         case "rainbow": return rainbowColorEffect();
             break;
-        case "darkRainbow": return darkRainbowColorEffect();
+        case "blueRainbow": return blueRainbowColorEffect();
             break;
         case "singleColor": return singleColor;
             break;
@@ -66,10 +66,36 @@ function rainbowColorEffect() {
     return rainbowColorEffect;
 }
 
-function darkRainbowColorEffect() {
-    const randomRed = randomGreen = randomBlue = Math.floor(Math.random() * 200);
-    let darkRainbowColorEffect = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-    return darkRainbowColorEffect;
+function blueRainbowColorEffect() {
+    const randomRed = Math.floor(Math.random() * 200);
+    const randomGreen = Math.floor(Math.random() * 200);
+    const randomBlue = Math.floor(Math.random() * 512);
+    let blueRainbowColorEffect = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+    return blueRainbowColorEffect;
+}
+
+function randomRedBackground() {
+    const randomRedRed = Math.floor(Math.random() * 256);
+    const randomRedGreen = Math.floor(Math.random() * 0);
+    const randomRedBlue = Math.floor(Math.random() * 1110);
+    let red = `rgb(${randomRedRed}, ${randomRedGreen}, ${randomRedBlue})`;    
+    return red;
+}
+
+function randomBlueBackground() {
+    const randomBlueRed = Math.floor(Math.random() * 1110);
+    const randomBlueGreen = Math.floor(Math.random() * 0);
+    const randomBlueBlue = Math.floor(Math.random() * 256);
+    let blue = `rgb(${randomBlueRed}, ${randomBlueGreen}, ${randomBlueBlue})`;
+    return blue;
+}
+
+function randomGreenBackground() {
+    const randomGreenRed = Math.floor(Math.random() * 0);
+    const randomGreenGreen = Math.floor(Math.random() * 256);
+    const randomGreenBlue = Math.floor(Math.random() * 1110);
+    let green = `rgb(${randomGreenRed}, ${randomGreenGreen}, ${randomGreenBlue})`;
+    return green;
 }
 
 function clearGrid() {
@@ -88,7 +114,7 @@ function addGlobalEventListener(type, selector, callback) {
 addGlobalEventListener("click", ".clear-button", clearGrid);
 addGlobalEventListener("click", ".blackColor-button", () => { selectedColorEffect = "black"; })
 addGlobalEventListener("click", ".rainbow-button", () => { selectedColorEffect = "rainbow"; });
-addGlobalEventListener("click", ".darkRainbow-button", () => { selectedColorEffect = "darkRainbow"; })
+addGlobalEventListener("click", ".blueRainbow-button", () => { selectedColorEffect = "blueRainbow"; })
 
 addGlobalEventListener("input", ".grid-slider", gridSizeValue);
 addGlobalEventListener("change", ".magic-click", (e) => { if(e.target.checked === true) { clickEffect = magicClick }
@@ -100,10 +126,14 @@ addGlobalEventListener("input", ".single-color", (e) => {
     selectedColorEffect = "singleColor";
 })
 
-addGlobalEventListener("click", ".randomizer", () => { 
+addGlobalEventListener("click", ".randomizer", () => {
+    const colorScheme = ["red", "blue", "green"];
+    let randomScheme = colorScheme[Math.floor(Math.random() * 3)];
     const arrayGridContent = Array.from(gridContent.childNodes);
     arrayGridContent.forEach(element => {
-        element.style.backgroundColor = rainbowColorEffect();
+        if (randomScheme === "red") { element.style.backgroundColor = randomRedBackground(); }
+        if (randomScheme === "blue") { element.style.backgroundColor = randomBlueBackground(); }
+        if (randomScheme === "green") { element.style.backgroundColor = randomGreenBackground(); }
     })
 })
 
@@ -113,7 +143,6 @@ addGlobalEventListener("click", ".copy-color", (e) => {
     gridContent.addEventListener("click", (e) => {
         copyColor = e.target.style.backgroundColor;
         selectedColorEffect = "copyColor";
-        console.log(e.target.style.backgroundColor)
     }, {once:true})
 })
 

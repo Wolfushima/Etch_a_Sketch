@@ -104,6 +104,16 @@ p {
     z-index: 3;
 }
 
+.tools-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+}
+
+
 button, .color-pick, .single-color {
     display: block;
     text-align: center;
@@ -133,6 +143,12 @@ button:active {
     transform: scale(1);
 }
 
+.tools-container p {
+    justify-content: center;
+    align-content: center;
+    margin-top: 5px;
+}
+
 .slide-container {
     justify-content: center;
     align-items: center;
@@ -154,6 +170,10 @@ button:active {
     -webkit-transition: .2s;
     transition: opacity .2s;
     box-shadow: 0 0 1px 1px rgba(0, 189, 236, 0.205);
+}
+
+.grid-slider:hover {
+    background-color: rgba(44, 141, 44, 0.281);
 }
 
 .grid-slider::-webkit-slider-thumb {
@@ -223,9 +243,10 @@ input:checked + .slider:before {
 }
 
 footer {
+    filter: invert();
     border-top: yellow solid .1px;
     height: 30px;
-    background-image: linear-gradient(rgb(32, 32, 32),rgb(15, 15, 48));
+    background-image: linear-gradient(rgb(32, 32, 32),rgba(128, 141, 57, 0.26));
     background-size: 10%;
     display: flex;
     align-items: center;
@@ -243,6 +264,14 @@ footer div {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     align-self: baseline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    filter: invert();
 }
 
 .div-element {
