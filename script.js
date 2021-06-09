@@ -115,9 +115,11 @@ addGlobalEventListener("click", ".clear-button", clearGrid);
 addGlobalEventListener("click", ".blackColor-button", () => { selectedColorEffect = "black"; })
 addGlobalEventListener("click", ".rainbow-button", () => { selectedColorEffect = "rainbow"; });
 addGlobalEventListener("click", ".blueRainbow-button", () => { selectedColorEffect = "blueRainbow"; })
-
+addGlobalEventListener("click", ".eraser-button", () => { selectedColorEffect = "eraser"; })
 addGlobalEventListener("input", ".grid-slider", gridSizeValue);
-addGlobalEventListener("change", ".magic-click", (e) => { if(e.target.checked === true) { clickEffect = magicClick }
+
+addGlobalEventListener("change", ".magic-click", (e) => {
+    if(e.target.checked === true) { clickEffect = magicClick }
     else clickEffect = () => void(0);
 })
 
@@ -137,7 +139,6 @@ addGlobalEventListener("click", ".randomizer", () => {
     })
 })
 
-addGlobalEventListener("click", ".eraser-button", () => { selectedColorEffect = "eraser"; })
 addGlobalEventListener("click", ".copy-color", (e) => {
     selectedColorEffect = "emptyColor";
     gridContent.addEventListener("click", (e) => {
