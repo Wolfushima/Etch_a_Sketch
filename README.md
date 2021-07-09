@@ -1,2 +1,2 @@
-https://wolfushima.github.io/Etch_a_Sketch/
+Live: https://wolfushima.github.io/Etch_a_Sketch/
 # Etch_a_Sketch
